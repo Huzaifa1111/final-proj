@@ -31,7 +31,7 @@ const Dashboard = () => {
       rounded-tr-3xl rounded-br-3xl font-montserrat text-[13px]`}>
 
         <div className="flex space-x-2 text-[15px] items-center px-4">
-        <img src="/assets/img29.png" alt="logo" className="w-8 h-auto " />
+        <img src="/assets/img29.png" alt="logo" className="w-8 h-auto" />
         <h1 className="mt-[6px] hidden group-hover:inline-block ">PhiHorizon</h1>
         </div>
         <ul className="text-4xl group-hover:text-xl">
