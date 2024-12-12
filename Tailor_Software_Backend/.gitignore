@@ -1,0 +1,83 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build directories
+dist/
+build/
+temp/
+out/
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.cache/
+.nyc_output/
+coverage/
+*.eslintcache
+*.tsbuildinfo
+.vscode/
+
+# Environment variables
+.env
+.env.test
+.env.production
+.env.local
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-workspace
+
+# Optional npm cache directory
+.npm/
+
+# Optional Yarn cache directory
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Optional PM2 logs and PIDs
+.pm2/
+
+# TypeScript
+*.tsbuildinfo
+
+# Debug files
+*.tgz
+
+# Private keys and certificates
+*.pem
+*.key
+*.crt
+
+# Temporary files
+*.bak
+*.tmp
+~*
+
+# Test coverage
+coverage/
+
+# Ignore other build or temporary files as needed
