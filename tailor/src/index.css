@@ -2,6 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+/* In your global styles (e.g., style.css or tailwind.config.js) */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+ 
+
+}
+
+
+
+.scrollable-container {
+  overflow-y: auto;
+  max-height: 90vh; /* You can adjust based on your design */
+  scrollbar-width: thin;
+  scrollbar-color: #0EC4CB #f1f1f1;
+}
+
+/* For webkit browsers (like Chrome, Safari) */
+.scrollable-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #0EC4CB;
+  border-radius: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+
+
+@layer components {
+  .btn-diagonal {
+    @apply relative px-5 py-2 text-lg font-bold uppercase border-2 border-purple-600 text-purple-600 bg-transparent cursor-pointer overflow-hidden transition-all duration-1000;
   }
+
+  .btn-diagonal::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    transform: skewX(45deg);
+    background-color: purple;
+    z-index: -1;
+    transition: all 1s;
+  }
+
+  .btn-diagonal:hover {
+    @apply text-white;
+  }
+
+  .btn-diagonal:hover::before {
+    width: 160%;
+  }
+}
+
+

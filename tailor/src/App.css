@@ -1,8 +1,30 @@
+@media print {
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
+
+  body * {
+    visibility: hidden;
+  }
+  #print-content, #print-content * {
+    visibility: visible;
+  }
+  #print-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
 }
 
 .logo {
@@ -39,4 +61,46 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.subcategory-content {
+  position: relative;
+  z-index: 0;
+}
+
+.subcategory-panel {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.subcategory-panel.opacity-100 {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+.subcategory-panel.opacity-0 {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.patti-component {
+  position: relative;
+  z-index: 0;
+}
+
+.patti-component button {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.patti-component .absolute {
+  z-index: 50; /* Ensure dropdowns appear above other elements */
+}
+
+/* Debug: Highlight buttons on hover */
+.patti-component button:hover {
+  background-color: #f0f0f0;
 }
