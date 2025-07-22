@@ -14,7 +14,7 @@ const Login = () => {
 
     useEffect(() => {
         // Check session
-        fetch("http://localhost:8000/api/check-session", {
+    fetch("https://tailor-backend-sigma.vercel.app/api/check-session", {
             credentials: "include",
         })
             .then((response) => response.json())
@@ -62,7 +62,7 @@ const Login = () => {
     const handleFieldClick = async () => {
         if (username) {
             try {
-                const response = await fetch("http://localhost:8000/api/get-saved-credentials", {
+            const response = await fetch("https://tailor-backend-sigma.vercel.app/api/get-saved-credentials", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     credentials: "include",
@@ -100,7 +100,7 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:8000/api/login", {
+        const response = await fetch("https://tailor-backend-sigma.vercel.app/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -125,7 +125,7 @@ const Login = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/logout", {
+        const response = await fetch("https://tailor-backend-sigma.vercel.app/api/logout", {
                 method: "POST",
                 credentials: "include",
             });

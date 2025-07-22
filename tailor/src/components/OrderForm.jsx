@@ -32,8 +32,8 @@ function OrderForm({
   const searchCustomers = async (query) => {
     if (!query.trim()) return [];
     try {
-      console.log(`Fetching customers from /api/customers/search?query=${query}`);
-      const response = await fetch(`/api/customers/search?query=${encodeURIComponent(query)}`, {
+     console.log(`Fetching customers from https://tailor-backend-sigma.vercel.app/api/customers/search?query=${query}`);
+    const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/customers/search?query=${encodeURIComponent(query)}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -66,8 +66,7 @@ function OrderForm({
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/orders/suborders?customerId=${encodeURIComponent(
-          formState.customerDetails?._id
+`https://tailor-backend-sigma.vercel.app/api/orders/suborders?customerId=${encodeURIComponent(          formState.customerDetails?._id
         )}&variety=${encodeURIComponent(variety)}`,
         {
           method: "GET",
@@ -517,8 +516,7 @@ const handleSubOrderSelect = async (subOrder) => {
 
   const handleEditCustomer = async (updatedCustomer) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/customers/${updatedCustomer._id}`, {
-        method: "PUT",
+const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/customers/${updatedCustomer._id}`, {        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedCustomer),
         credentials: "include",
@@ -545,8 +543,7 @@ const handleSubOrderSelect = async (subOrder) => {
 
   const handleDeleteCustomer = async (customerId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/customers/${customerId}`, {
-        method: "DELETE",
+const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/customers/${customerId}`, {        method: "DELETE",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
       });

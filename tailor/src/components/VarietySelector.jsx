@@ -44,8 +44,7 @@ function VarietySelector({
 
       for (const variety of varieties) {
         const response = await fetch(
-          `/api/orders/suborders?customerId=${customerId}&variety=${encodeURIComponent(variety)}`,
-          {
+`https://tailor-backend-sigma.vercel.app/api/orders/suborders?customerId=${customerId}&variety=${encodeURIComponent(variety)}`,          {
             credentials: "include",
             headers: {
               'Content-Type': 'application/json'

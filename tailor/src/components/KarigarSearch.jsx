@@ -26,8 +26,7 @@ const KarigarSearch = ({ onKarigarSelect, selectedKarigar }) => {
   useEffect(() => {
     const fetchKarigars = async () => {
       try {
-        const response = await fetch("/api/karigars", {
-          credentials: "include",
+const response = await fetch("https://tailor-backend-sigma.vercel.app/api/karigars", {          credentials: "include",
         });
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

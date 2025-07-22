@@ -8,9 +8,9 @@ dotenv.config({
     path: './.env'
 });
 
-// Apply CORS middleware to allow requests from Netlify frontend
+// Apply CORS middleware to allow requests from Vercel frontend
 app.use(cors({
-    origin: ['https://your-netlify-app.netlify.app', 'http://localhost:3000'],
+    origin: ['https://tailor-backend-6vd9.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true
 }));

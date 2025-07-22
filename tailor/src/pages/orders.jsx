@@ -21,8 +21,8 @@ const Orders = () => {
   setError(null);
   try {
     const url = query
-      ? `http://localhost:8000/api/orders/search?customerName=${encodeURIComponent(query)}`
-      : "http://localhost:8000/api/orders";
+       ? `https://tailor-backend-sigma.vercel.app/api/orders/search?customerName=${encodeURIComponent(query)}`
+      : "https://tailor-backend-sigma.vercel.app/api/orders";
     console.log(`Fetching orders from: ${url}`);
     const response = await fetch(url, {
       method: "GET",
@@ -139,7 +139,7 @@ const Orders = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(`/api/orders/${orderId}`, {
+    const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
         method: "DELETE",
         credentials: "include",
       });

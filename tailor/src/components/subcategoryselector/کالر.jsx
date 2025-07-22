@@ -1,5 +1,34 @@
 import React, { useEffect } from "react";
 
+const [collarImages, setCollarImages] = useState([
+  "/assets/maghzi gala.svg",
+  "/assets/gol colar.svg",
+  "/assets/fc1.svg",
+  "/assets/full ban gol.svg",
+  "/assets/half ben gol.svg",
+  "/assets/full ban choras.svg",
+  "/assets/half ben choras.svg",
+]);
+
+useEffect(() => {
+  const fetchCollarImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/collar/images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setCollarImages(data.images || collarImages);
+      }
+    } catch (error) {
+      console.error("Error fetching collar images:", error);
+    }
+  };
+
+  fetchCollarImages();
+}, []);
+
+
 function کالر({
   selectedImages,
   handleImageClick,

@@ -291,6 +291,29 @@ const groupedImages = useMemo(() => {
   );
 };
 
+
+
+const [details, setDetails] = useState({});
+
+useEffect(() => {
+  const fetchOrderDetails = async () => {
+    try {
+      const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${details.subId}`, {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setDetails(data.order);
+      }
+    } catch (error) {
+      console.error("Error fetching order details:", error);
+    }
+  };
+
+  if (details.subId) {
+    fetchOrderDetails();
+  }
+}, [details.subId]);
 const Details1 = ({
   details = {},
   tailorName = "ADIL GENTS AND TAILOR",

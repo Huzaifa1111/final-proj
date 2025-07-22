@@ -1,6 +1,58 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { HiChevronDown } from "react-icons/hi";
 
+
+
+const [pocketImages, setPocketImages] = useState([
+  "/assets/choras jaib.svg",
+  "/assets/cut jaib.svg",
+  "/assets/flip jaib choras.svg",
+  "/assets/flip jaib simple.svg",
+  "/assets/flip jaib.svg",
+  "/assets/gol jaib.svg",
+  "/assets/no jaib.svg",
+  "/assets/nok jaib.svg",
+]);
+const [sidePocketImages, setSidePocketImages] = useState([
+  "/assets/side jaib 1.svg",
+  "/assets/side jaib 2.svg",
+]);
+
+useEffect(() => {
+  const fetchPocketImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/pocket/images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setPocketImages(data.images || pocketImages);
+      }
+    } catch (error) {
+      console.error("Error fetching pocket images:", error);
+    }
+  };
+
+  const fetchSidePocketImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/pocket/side-images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSidePocketImages(data.images || sidePocketImages);
+      }
+    } catch (error) {
+      console.error("Error fetching side pocket images:", error);
+    }
+  };
+
+  fetchPocketImages();
+  fetchSidePocketImages();
+}, []);
+
+
+
 function جیب({
   subCategoryImages,
   selectedSubCategory,

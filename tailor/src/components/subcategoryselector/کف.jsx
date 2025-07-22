@@ -1,5 +1,38 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 
+
+
+const [cuffImages, setCuffImages] = useState([
+  "/assets/choras kaf 2.svg",
+  "/assets/choras kaf.svg",
+  "/assets/d kaf.svg",
+  "/assets/gol kaf.svg",
+  "/assets/kat kaf.svg",
+  "/assets/kani bazu.svg",
+  "/assets/gol bazu 3 button.svg",
+  "/assets/gol bazu.svg",
+  "/assets/lopi gol bazu.svg",
+]);
+
+useEffect(() => {
+  const fetchCuffImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/cuff/images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setCuffImages(data.images || cuffImages);
+      }
+    } catch (error) {
+      console.error("Error fetching cuff images:", error);
+    }
+  };
+
+  fetchCuffImages();
+}, []);
+
+
 function Cuff({
   subCategoryImages = {},
   selectedSubCategory,

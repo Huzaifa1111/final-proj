@@ -22,7 +22,7 @@ function CreateOrder() {
     try {
       // Fetch existing orders for this customer and variety
       const response = await fetch(
-        `http://localhost:8000/api/orders/suborders?customerId=${encodeURIComponent(
+      `https://tailor-backend-sigma.vercel.app/api/orders/suborders?customerId=${encodeURIComponent(
           formState.customerDetails?._id
         )}&variety=${encodeURIComponent(variety)}`,
         {
@@ -119,7 +119,7 @@ function CreateOrder() {
     if (!query || query.trim() === "") return [];
     try {
       const response = await fetch(
-        `http://localhost:8000/api/customers/search?query=${encodeURIComponent(query)}`,
+      `https://tailor-backend-sigma.vercel.app/api/customers/search?query=${encodeURIComponent(query)}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -180,7 +180,7 @@ function CreateOrder() {
 
   const handleAddCustomer = async (newCustomer) => {
     try {
-      const response = await fetch("http://localhost:8000/api/customers", {
+    const response = await fetch("https://tailor-backend-sigma.vercel.app/api/customers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCustomer),
@@ -228,14 +228,14 @@ function CreateOrder() {
 
       let response;
       if (isEditing && orderId) {
-        response = await fetch(`http://localhost:8000/api/orders/${orderId}`, {
+      response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
           credentials: "include",
         });
       } else {
-        response = await fetch("http://localhost:8000/api/orders", {
+      response = await fetch("https://tailor-backend-sigma.vercel.app/api/orders", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

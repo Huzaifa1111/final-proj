@@ -12,7 +12,7 @@ const Settings = () => {
     const checkSession = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/check-session",
+          "https://tailor-backend-sigma.vercel.app/api/check-session",
           {
             credentials: "include",
           }
@@ -30,7 +30,7 @@ const Settings = () => {
 
     const fetchSettings = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/settings", {
+        const response = await fetch("https://tailor-backend-sigma.vercel.app/api/settings", {
           credentials: "include",
         });
         const data = await response.json();
@@ -105,7 +105,7 @@ const Settings = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/api/settings", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/settings", {
         method: "POST",
         body: formData,
         credentials: "include",

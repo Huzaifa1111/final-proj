@@ -25,7 +25,7 @@ const Customers = () => {
   });
   const [errors, setErrors] = useState({});
 
-  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+const baseURL = "https://tailor-backend-sigma.vercel.app/api";
 
   useEffect(() => {
     fetchCustomers();

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-const buttonNames = [
+
+
+
+
+
+
+const [buttonNames, setButtonNames] = useState([
   "سٹیل بٹن",
   "کپڑا بٹن",
   "رینگ بٹن",
@@ -8,7 +14,25 @@ const buttonNames = [
   "فینسی بٹن",
   "فینسی رینگ بٹن",
   "اپنے بٹن",
-];
+]);
+
+useEffect(() => {
+  const fetchButtonOptions = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/buttons", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setButtonNames(data.buttons || buttonNames);
+      }
+    } catch (error) {
+      console.error("Error fetching button options:", error);
+    }
+  };
+
+  fetchButtonOptions();
+}, []);
 
 function بٹن({ selectedSubCategory, handleButtonClick, formState = {}, updateData }) {
   const [selectedButton, setSelectedButton] = useState(formState.selectedButton || "");

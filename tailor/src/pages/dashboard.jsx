@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const fetchPrices = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/settings", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/settings", {
         credentials: 'include',
       });
       const data = await response.json();
@@ -74,7 +74,7 @@ const Dashboard = () => {
   // Fetch total customers
   const fetchTotalCustomers = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/customers", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/customers", {
         method: "GET",
         credentials: "include",
       });
@@ -92,7 +92,7 @@ const Dashboard = () => {
   // Fetch total orders
   const fetchTotalOrders = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/orders", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/orders", {
         method: "GET",
         credentials: "include",
       });
@@ -117,7 +117,7 @@ const Dashboard = () => {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/logout", {
+        const response = await fetch("https://tailor-backend-sigma.vercel.app/api/logout", {
           method: "POST",
           credentials: "include",
         });
@@ -136,7 +136,7 @@ const Dashboard = () => {
     Promise.all([fetchPrices(), fetchTotalCustomers(), fetchTotalOrders()])
       .finally(() => setIsLoading(false));
 
-    fetch('http://localhost:8000/api/check-session', { credentials: 'include' })
+    fetch('https://tailor-backend-sigma.vercel.app/api/check-session', { credentials: 'include' })
       .then(res => res.json())
       .then(data => console.log(data));
 

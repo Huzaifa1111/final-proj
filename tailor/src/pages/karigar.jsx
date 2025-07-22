@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaEdit, FaEye, FaTrash, FaPlus } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 
-const API_BASE_URL = "http://localhost:8000"; // Adjust to your backend port
+const API_BASE_URL = "https://tailor-backend-sigma.vercel.app";
 
 const Karigar = () => {
   const navigate = useNavigate();

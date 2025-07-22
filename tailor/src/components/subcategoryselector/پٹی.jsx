@@ -10,7 +10,7 @@ const translations = {
   buttonsLabel: "بٹنوں کی تعداد",
 };
 
-const pattiImages = [
+const [pattiImages, setPattiImages] = useState([
   "/assets/gol pati.svg",
   "/assets/gum pati 2.svg",
   "/assets/gum pati 3.svg",
@@ -18,7 +18,25 @@ const pattiImages = [
   "/assets/gum pati.svg",
   "/assets/nok pato.svg",
   "/assets/lopi wai pati.svg",
-];
+]);
+
+useEffect(() => {
+  const fetchPattiImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/patti/images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setPattiImages(data.images || pattiImages);
+      }
+    } catch (error) {
+      console.error("Error fetching patti images:", error);
+    }
+  };
+
+  fetchPattiImages();
+}, []);
 
 function پٹی({
   selectedImages = [],

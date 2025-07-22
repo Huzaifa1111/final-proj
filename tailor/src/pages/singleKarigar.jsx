@@ -24,7 +24,7 @@ const SingleKarigar = () => {
   const fetchAssignedOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/orders", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/orders", {
         credentials: "include",
       });
       if (!response.ok) {
@@ -55,7 +55,7 @@ const SingleKarigar = () => {
   const fetchUnassignedOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/orders", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/orders", {
         credentials: "include",
       });
       if (!response.ok) {
@@ -78,7 +78,7 @@ const SingleKarigar = () => {
   const fetchDeliveredOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/orders", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/orders", {
         credentials: "include",
       });
       if (!response.ok) {
@@ -109,7 +109,7 @@ const SingleKarigar = () => {
   const fetchKarigars = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/karigars", {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/karigars", {
         credentials: "include",
       });
       if (!response.ok) {
@@ -164,7 +164,7 @@ const SingleKarigar = () => {
         type: order.type,
       });
 
-      const response = await fetch(`/api/orders/${orderId}`, {
+      const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -259,7 +259,7 @@ const SingleKarigar = () => {
       cutter: order.cutter || {},
     });
 
-    const response = await fetch(`http://localhost:8000/api/orders/${orderId}`, {
+      const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -353,7 +353,7 @@ const SingleKarigar = () => {
         details: { ...order.details, status: "Delivered" },
       });
 
-      const response = await fetch(`/api/orders/${orderId}`, {
+      const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -431,7 +431,7 @@ const SingleKarigar = () => {
        }
        : null;
 
-       const response = await fetch(`/api/orders/${orderId}`, {
+      const response = await fetch(`https://tailor-backend-sigma.vercel.app/api/orders/${orderId}`, {
         method: "PUT",
         headers: {
           "Content-Type" : "application/json",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-const cutterButtonNames = [
+const [cutterButtonNames, setCutterButtonNames] = useState([
   "کرتا بنانا ہے درزو والا",
   "آستین اوپر سے فٹ",
   "آستین اوپر سے زیادہ فٹ",
@@ -15,7 +15,25 @@ const cutterButtonNames = [
   "لیبل نہیں لگانا",
   "دامن گول",
   "دامن چورس",
-];
+]);
+
+useEffect(() => {
+  const fetchCutterOptions = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/cutter/options", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setCutterButtonNames(data.options || cutterButtonNames);
+      }
+    } catch (error) {
+      console.error("Error fetching cutter options:", error);
+    }
+  };
+
+  fetchCutterOptions();
+}, []);
 
 function کٹر({ selectedSubCategory, formState = {}, updateData }) {
   // Memoize the initial selection to prevent unnecessary recalculations

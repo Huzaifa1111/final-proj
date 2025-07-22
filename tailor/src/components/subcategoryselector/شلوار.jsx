@@ -1,6 +1,34 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { HiChevronDown } from "react-icons/hi";
 
+
+
+
+
+const [images, setImages] = useState([
+  "/assets/pent shalwar.svg",
+  "/assets/zip shalwar.svg",
+  "/assets/pocket shalwar.svg",
+  "/assets/shalwaer.svg",
+]);
+
+useEffect(() => {
+  const fetchShalwarImages = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/shalwar/images", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setImages(data.images || images);
+      }
+    } catch (error) {
+      console.error("Error fetching shalwar images:", error);
+    }
+  };
+
+  fetchShalwarImages();
+}, []);
 function شلوار({ subCategoryImages, selectedSubCategory, handleImageClick, formState = {}, updateData }) {
   const images = useMemo(() => 
     subCategoryImages["شلوار"] || [

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const silaiButtons = [
+const [silaiButtons, setSilaiButtons] = useState([
   "سادہ سلائی",
   "ڈبل سادہ سلائی",
   "سنگل چمک سلائی",
@@ -13,7 +13,25 @@ const silaiButtons = [
   "چمک پن سلائی",
   "چوکا سلائی",
   "موبائل میں Dیزائن",
-];
+]);
+
+useEffect(() => {
+  const fetchSilaiOptions = async () => {
+    try {
+      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/silai/options", {
+        credentials: "include",
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSilaiButtons(data.options || silaiButtons);
+      }
+    } catch (error) {
+      console.error("Error fetching silai options:", error);
+    }
+  };
+
+  fetchSilaiOptions();
+}, []);
 
 const Silai = ({ selectedSubCategory, handleButtonClick, formState = {}, updateData }) => {
   const [selectedButton, setSelectedButton] = useState(formState.selectedButton || "");

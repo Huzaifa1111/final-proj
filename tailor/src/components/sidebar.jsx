@@ -27,8 +27,7 @@ const Sidebar = ({ handleVarietyClick, selectedVariety }) => {
   const handleLogout = async () => {
     try {
       console.log("Initiating logout");
-      const response = await fetch("http://localhost:8000/api/logout", {
-        method: "POST",
+const response = await fetch("https://tailor-backend-sigma.vercel.app/api/logout", {        method: "POST",
         credentials: "include",
       });
       const data = await response.json();
