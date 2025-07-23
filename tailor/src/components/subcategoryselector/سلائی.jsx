@@ -18,9 +18,9 @@ const [silaiButtons, setSilaiButtons] = useState([
 useEffect(() => {
   const fetchSilaiOptions = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/silai/options", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/silai/options`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setSilaiButtons(data.options || silaiButtons);

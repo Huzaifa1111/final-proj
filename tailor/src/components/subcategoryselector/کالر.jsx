@@ -13,9 +13,9 @@ const [collarImages, setCollarImages] = useState([
 useEffect(() => {
   const fetchCollarImages = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/collar/images", {
-        credentials: "include",
-      });
+     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/shalwar/images`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setCollarImages(data.images || collarImages);

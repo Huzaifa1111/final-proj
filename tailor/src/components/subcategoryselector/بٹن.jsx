@@ -19,9 +19,9 @@ const [buttonNames, setButtonNames] = useState([
 useEffect(() => {
   const fetchButtonOptions = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/buttons", {
-        credentials: "include",
-      });
+     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/buttons`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setButtonNames(data.buttons || buttonNames);

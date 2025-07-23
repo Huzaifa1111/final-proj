@@ -23,9 +23,9 @@ const [pattiImages, setPattiImages] = useState([
 useEffect(() => {
   const fetchPattiImages = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/patti/images", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/patti/images`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setPattiImages(data.images || pattiImages);

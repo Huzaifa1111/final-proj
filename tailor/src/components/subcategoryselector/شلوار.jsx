@@ -15,9 +15,9 @@ const [images, setImages] = useState([
 useEffect(() => {
   const fetchShalwarImages = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/shalwar/images", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/shalwar/images`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setImages(data.images || images);

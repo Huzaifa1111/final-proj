@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import path from "path";
 
 // Middlewares
-import { corsOptions, sessionConfig } from "./middlewares/middleware.js";
+import { sessionConfig } from "./middlewares/middleware.js";
 
 // Routes
 import router from "./routes/routes.js";
@@ -11,10 +11,9 @@ import router from "./routes/routes.js";
 const app = express();
 
 // Serve static files from the uploads directory
-app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads'))); // Note: Ensure 'uploads' directory exists and is lowercase for Vercel compatibility
 
 // Apply middlewares
-app.use(corsOptions); // Enable CORS with configured options
 app.use(express.json()); // Parse JSON request bodies
 app.use(cookieParser()); // Parse cookies
 app.use(sessionConfig); // Configure session management

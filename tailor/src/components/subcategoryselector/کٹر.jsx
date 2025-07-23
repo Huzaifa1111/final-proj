@@ -20,9 +20,9 @@ const [cutterButtonNames, setCutterButtonNames] = useState([
 useEffect(() => {
   const fetchCutterOptions = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/cutter/options", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cutter/options`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setCutterButtonNames(data.options || cutterButtonNames);

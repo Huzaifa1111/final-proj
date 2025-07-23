@@ -14,16 +14,16 @@ const [pocketImages, setPocketImages] = useState([
   "/assets/nok jaib.svg",
 ]);
 const [sidePocketImages, setSidePocketImages] = useState([
-  "/assets/side jaib 1.svg",
+  "/as;sets/side jaib 1.svg",
   "/assets/side jaib 2.svg",
 ]);
 
 useEffect(() => {
   const fetchPocketImages = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/pocket/images", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pocket/images`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setPocketImages(data.images || pocketImages);
@@ -35,9 +35,9 @@ useEffect(() => {
 
   const fetchSidePocketImages = async () => {
     try {
-      const response = await fetch("https://tailor-backend-sigma.vercel.app/api/pocket/side-images", {
-        credentials: "include",
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pocket/side-images`, {
+  credentials: "include",
+});
       const data = await response.json();
       if (data.success) {
         setSidePocketImages(data.images || sidePocketImages);
