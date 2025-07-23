@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
-import Layout from "./components/Layout.jsx"; // Import the Layout component
+import Layout from "./components/Layout"; // Import the Layout component
 import Customers from "./pages/customers";
 import Orders from "./pages/orders";
 import Varieties from "./pages/varieties";

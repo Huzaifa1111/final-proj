@@ -6,9 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://tailor-backend-sigma.vercel.app', // Updated backend URL
+        target: 'http://localhost:8000', // Use backend's local port for development
         changeOrigin: true,
-        secure: true,
+        secure: false,
       },
     },
   },
